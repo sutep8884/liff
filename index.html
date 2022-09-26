@@ -112,7 +112,10 @@
 
     async function main() {
       //alert("LINE Developers x Skooldio")
-      await liff.init({ liffId: "1657503184-z0vrlJOJ" })
+      await liff.init({ 
+        liffId: "1657503184-z0vrlJOJ",
+        withLoginOnExternalBrowser: true 
+      })
       getEnvironment()
       getUserProfile()
       // getContext()
