@@ -67,12 +67,30 @@
     }
 
     async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessage([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
+      }
     }
 
     function getContext() {
     }
 
     async function getUserProfile() {
+      const profile = await liff.getProfile()
+
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken())
     }
 
     function getEnvironment() {
